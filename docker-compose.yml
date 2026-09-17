@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql:8
+    container_name: dairydan-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootpass}
+      MYSQL_DATABASE: ${DB_NAME:-dairydan_db}
+    ports:
+      - "3306:3306"
+    volumes:
+      - dairydan-db-data:/var/lib/mysql
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./db/seed.sql:/docker-entrypoint-initdb.d/2-seed.sql
+
+volumes:
+  dairydan-db-data:

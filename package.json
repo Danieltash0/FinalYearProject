@@ -1,0 +1,19 @@
+{
+  "name": "dairydan",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DairyDan - role-based dairy farm management system with a milk yield recommender",
+  "scripts": {
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "db:up": "docker compose up -d db",
+    "db:down": "docker compose down",
+    "db:migrate": "node db/run-migrations.js",
+    "db:seed": "node db/run-seed.js",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,28 @@
+# Node modules
+client/node_modules/
+server/node_modules/
+recommender/venv/
+recommender/__pycache__/
+.cache/
+
+# Build output
+client/build/
+server/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+client/.env
+server/.env
+recommender/.env
+.env
+
+# Editor
+.vscode/
+.idea/
