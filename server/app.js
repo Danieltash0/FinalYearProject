@@ -11,8 +11,11 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'DairyDan backend is running', timestamp: new Date().toISOString() });
 });
 
-// Mount feature routes here as they're built, e.g.:
-// app.use('/api/auth', require('./routes/authRoutes'));
-// app.use('/api/cattle', require('./routes/cattleRoutes'));
+// Feature routes
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/cattle', require('./routes/cattleRoutes'));
+
+app.use((req, res) => res.status(404).json({ error: 'Route not found' }));
 
 module.exports = app;

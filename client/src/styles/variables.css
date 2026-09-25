@@ -1,0 +1,23 @@
+:root {
+  /* Palette carried over from the COWCO design */
+  --primary-green: #2d5a27;
+  --secondary-green: #4a7c59;
+  --light-green: #e8f5e8;
+  --dark-green: #1a3d1a;
+  --white: #ffffff;
+  --gray-light: #f8f9fa;
+  --gray-border: #dee2e6;
+  --gray-medium: #6c757d;
+  --gray-dark: #343a40;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --transition: 0.2s ease-in-out;
+}
