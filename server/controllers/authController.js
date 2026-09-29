@@ -78,3 +78,20 @@ exports.me = async (req, res) => {
     res.status(500).json({ error: 'Could not load profile' });
   }
 };
+
+// Always responds the same way whether or not the account exists, so this
+// endpoint can't be used to enumerate registered emails.
+// TODO: wire up real email delivery once a mail provider is chosen.
+exports.forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({ error: 'Email is required' });
+    }
+    await User.getUserByEmail(email.trim().toLowerCase());
+    res.json({ message: 'If an account with that email exists, password reset instructions have been sent.' });
+  } catch (err) {
+    console.error('Forgot password error:', err);
+    res.status(500).json({ error: 'Failed to process request' });
+  }
+};
